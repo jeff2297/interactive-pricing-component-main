@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Interactive pricing component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600&display=swap');
+
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+      position: relative;
+      float: left;
+      top: 21rem
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    body {
+      background-image: url("images/bg-pattern.svg");
+      font-family: 'Manrope', sans-serif;
+    }
+
+    h1 {
+      display: flex;
+      position: relative;
+      top: 20px;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 25px;
+     
+    }
+
+    .header p {
+      display: flex;
+      position: relative;
+      top: 10px;
+      justify-content: center;
+      color: hsl(230, 100%, 99%);
+      opacity: 0.7;
+      font-size: 13px;
+      color: hsl(227, 35%, 25%);
+    }
+
+    
+
+    button {
+      display: flex;
+      position: relative;
+      top: -15px;
+      left: 320px;
+      background-color: hsl(227, 35%, 25%);
+      color: white;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      border-radius: 15px;
+      border: none;
+      height: 35px;
+      width: 140px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 11px;
+      cursor:pointer
+    }
+
+    .price-container {
+      display: flexbox;
+      position: relative;
+      height: 300px;
+      width: 500px;
+      left: 23rem;
+      top: 3rem;
+      background-color: white;
+      border-radius: 10px;
+    }
+
+    .price-per-month {
+     display: inline-flex;
+     position: relative;
+
+    }
+
+    .price-per-month p{
+      position: relative;
+      left: 70px;
+      color: black;
+      margin-right: 220px;
+    }
+
+    .price-per-month span{
+     display: inline-flex;
+     position: relative;
+     top: 17px;
+     left: -205px;
+     margin-right: 45px;
+    }
+
+    b{
+      font-weight: bold;
+    }
+
+    .price-container ul {
+      display: flexbox;
+      position: relative;
+      top: 60px;
+      left: -20px;
+      list-style-type: none;
+
+    }
+
+    .price-container ul li {
+      margin: 6px;
+      margin-left: 10px;
+      opacity: 0.5;
+    }
+
+    #slider-image{
+      display: flex;
+      position: relative;
+      top: 17px;
+      left: 251px
+    }
+
+    .slider {
+      -webkit-appearance: none;
+      width: 80%;
+      height: 10px;
+      display: flex;
+      position: relative;
+      top: 30px;
+      left: 60px;
+      background: hsl(174, 86%, 45%);
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+      cursor: pointer;
+    }
+
+    .slider:hover {
+      opacity: 1;
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 35px;
+      height: 35px;
+      display: flex;
+      position: relative;
+      left: 2px;
+      background: #04AA6D;
+      border-radius: 40px;
+      cursor: pointer;
+    }
+
+    .slider::-moz-range-thumb {
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      top: 70px;
+      left: 120px;
+      width: 60px;
+      height: 30px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .billing-slider {
+      position: absolute;
+      cursor: pointer;
+      top: -5px;
+      left: 1px;
+      right: 0;
+      bottom: 0;
+      height: 25px;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    .billing-slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    input:checked+.billing-slider {
+      background-color: #2196F3;
+    }
+
+    input:focus+.billing-slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked+.billing-slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .billing-slider.round {
+      border-radius: 34px;
+    }
+
+    .billing-slider.round:before {
+      border-radius: 50%;
+    }
+    
+    .billing {
+      display: inline-flex;
+      position: relative;
+      
+    }
+
+    .billing p{
+      display: flex;
+      position: relative;
+      top: 62px;
+      left: 120px;
+      color: black;
+      margin: 10px;
+      font-size: 12px;
+      opacity: 0.5
+    }
+
+    .billing p span{
+      display: flex;
+      position: relative;
+      top: 1px;
+      color: red;
+      background-color: hsl(14, 92%, 95%);
+      border-radius: 10px;
+      width: 100px;
+      text-align: center;
+      justify-content: center;
+    }
+
+    hr {
+      display: flex;
+      position: relative;
+      top: 65px;
+      opacity: 0.8;
+    }
+
+    
+  </style>
+</head>
+
+<body>
+<div class="header">
+  <h1>Simple, traffic-based pricing</h1>
+  <p>Sign-up for our 30-day trial. No credit card required.</p>
+</div>
+  <div class="price-container">
+    <div class="price-per-month">
+    <p>100K PAGEVIEWS</p>
+    <p>16.00</p>
+    <span>$</span>
+    <span>/year</span>
+  </div>
+    <input type="range" min="1" max="100" value="50" class="slider" id="myRange" onchange="update(this.value)"> </input><img id="slider-image" src="images/icon-slider.svg"/>
+   
+    <div class="billing">
+
+      <p>Monthly Billing</p>
+      <label class="switch">
+        <input type="checkbox"  checked>
+        <span class="billing-slider round"></span>
+      </label>
+     <p>Yearly Billing<span>25% discount</span></p> 
+    
+  </div>
+  
+  <hr></hr>
+    <ul>
+      <li><img src="./images/icon-check.svg">Unlimited websites</li>
+      <li><img src="./images/icon-check.svg">100% data ownership</li>
+      <li><img src="./images/icon-check.svg">Email reports</li>
+    </ul>
+    <button>Start my trial</button>
+  </div>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+  <script>
+    let price = document.getElementsByClassName("price-per-month")[0].children[1];
+    let price1 = document.getElementsByClassName("price-per-month")[0].children[3];
+    function update(val){
+       //alert(val)
+       console.log(price)
+       if(price1.innerHTML === "/month"){
+        price.innerHTML = val * 16 * 0.75;
+       } else{
+        price.innerHTML = val * 16 * 0.75 * 12;
+       }
+        
+    }
+
+    document.getElementsByClassName("switch")[0].children[1].addEventListener("click", function(){
+     // alert("toggle!")
+      console.log(price1)
+      price1.innerHTML = "/month"
+
+    });
+     
+    
+  </script>
+</body>
+
+</html>
